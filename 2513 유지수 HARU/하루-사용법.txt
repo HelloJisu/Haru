@@ -1,0 +1,36 @@
+하루 사용법
+
+로그인 (초기 비밀번호 0000) -> 메인 화면 -> 쓰기, 수정, 검색 가능
+
+프로그램을 돌릴 컴퓨터에 D 드라이브가 없다면?
+1. 파티션 나누기로 D 드라이브 생성 
+또는 
+2. Login.java 소스에 
+new File("D:/haru").mkdir();  <- 코드에서 'D'를
+본인이 가지고 있는 드라이브  이름으로 바꿀 것!
+(지정된 드라이브에 폴더가 생성되어 이미지가 저장됨.)
+
+mysql 설정
+
+1. haru 데이터베이스 생성
+create database haru;
+
+2. 비밀번호 테이블 생성
+create table user (
+num tinytext,
+pw tinytext);
+
+3. 초기 비밀번호 설정
+insert into user(num,pw) values('1','0000');
+
+4. 일기 테이블 생성
+create table diary(
+num int auto_increment,
+title tinytext,
+content longtext,
+feel tinytext,
+writedate date,
+img longtext,
+primary key(num));
+
+
